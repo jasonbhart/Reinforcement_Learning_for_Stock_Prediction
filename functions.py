@@ -11,7 +11,8 @@ def getStockDataVec(key):
 	lines = open("data/" + key + ".csv", "r").read().splitlines()
 
 	for line in lines[1:]:
-		vec.append(float(line.split(",")[4]))
+		if "null" not in line:
+			vec.append(float(line.split(",")[4]))
 
 	return vec
 
